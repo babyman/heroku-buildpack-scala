@@ -150,5 +150,10 @@ if is_play $BUILD_DIR ; then
   fi
 fi
 
+if [ -d $SBT_USER_HOME/.ivy2 ]; then
+  echo "-----> Dropping ivy cache from the slug"
+  rm -rf $SBT_USER_HOME/.ivy2
+fi
+
 # Move compiled app back to where Heroku expects it
 mv $BUILD_DIR $APP_BUILD_DIR
